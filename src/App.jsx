@@ -1,22 +1,16 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import DetailPage from "./pages/DetailPage/DetailPage.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600 mb-4">
-        Tailwind CSS is Working! 🚀
-      </h1>
-      <p className="text-lg text-gray-700">
-        Edit <code>App.jsx</code> and save to test HMR.
-      </p>
-    </div>
-    </>
-  )
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/detail/:id" element={<DetailPage />} />
+            </Routes>
+        </Router>
+    );
 }
 
-export default App
+export default App;
