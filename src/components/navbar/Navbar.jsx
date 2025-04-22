@@ -1,6 +1,8 @@
 import React from "react";
+import { usePokemon } from "../../context/PokemonContext";
 
-const Navbar = ({ searchTerm, onSearchChange }) => {
+const Navbar = () => {
+    const { searchTerm, setSearchTerm } = usePokemon();
     const [showSearch, setShowSearch] = React.useState(false);
 
     const toggleSearch = () => {
@@ -19,7 +21,7 @@ const Navbar = ({ searchTerm, onSearchChange }) => {
                         <input
                             type="text"
                             value={searchTerm}
-                            onChange={(e) => onSearchChange(e.target.value)}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Search..."
                             className="w-full px-3 placeholder:text-gray-400 rounded-md bg-white placeholder-white focus:outline-[#3D4466]"
                         />
